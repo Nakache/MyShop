@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shop{% endblock %}
+
+{% block body %}
+    <h1>Shop</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ shop.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ shop.Name }}</td>
+            </tr>
+            <tr>
+                <th>Siren</th>
+                <td>{{ shop.Siren }}</td>
+            </tr>
+            <tr>
+                <th>Capacity</th>
+                <td>{{ shop.Capacity }}</td>
+            </tr>
+            <tr>
+            <th>produits:</th>
+            <td>
+                <ul>
+                    {% for product in products %}
+                        <li>
+                            {{ product.name|e }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('shop_index') }}">back to list</a>
+
+    <a href="{{ path('shop_edit', {'id': shop.id}) }}">edit</a>
+
+    {{ include('shop/_delete_form.html.twig') }}
+{% endblock %}
