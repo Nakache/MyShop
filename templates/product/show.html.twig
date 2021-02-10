@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <th>Shop</th>
-                <td>{{ product.shop.name }}</td>
+                <td><a href="{{ path('shop_show', {'id': product.shop.id}) }}">{{ product.shop.name }}</a></td>
             </tr>
         </tbody>
     </table>

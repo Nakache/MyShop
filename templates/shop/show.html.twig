@@ -29,7 +29,9 @@
                 <ul>
                     {% for product in products %}
                         <li>
-                            {{ product.name|e }}
+                            
+                <a href="{{ path('product_show', {'id': product.id}) }}">{{ product.name }}</a>
+
                         </li>
                     {% endfor %}
                 </ul>
