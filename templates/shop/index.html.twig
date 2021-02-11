@@ -5,26 +5,27 @@
 {% block body %}
     <h1>Shop index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Siren</th>
-                <th>Capacity</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col" >Id</th>
+            <th scope="col" >Name</th>
+            <th scope="col" >Siren</th>
+            <th scope="col" >Capacity</th>
+            <th scope="col" >actions</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for shop in shops %}
             <tr>
-                <td>{{ shop.id }}</td>
+                <th scope="row">{{ shop.id }}</th>
                 <td>{{ shop.Name }}</td>
                 <td>{{ shop.Siren }}</td>
                 <td>{{ shop.Capacity }}</td>
                 <td>
-                    <a href="{{ path('shop_show', {'id': shop.id}) }}">show</a>
-                    <a href="{{ path('shop_edit', {'id': shop.id}) }}">edit</a>
+                    <a class="btn btn-primary" role="button" href="{{ path('shop_show', {'id': shop.id}) }}">show</a>
+                    <a class="btn btn-primary" role="button" href="{{ path('shop_edit', {'id': shop.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -32,9 +33,8 @@
                 <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('shop_new') }}">Create new</a>
-    <a href="{{ path('product_index') }}">List of products</a>
+    </tbody>
+</table>
+    <a class="btn btn-primary" role="button" href="{{ path('shop_new') }}">Create new</a>
+    <a class="btn btn-primary" role="button" href="{{ path('product_index') }}">List of products</a>
 {% endblock %}
