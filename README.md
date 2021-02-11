@@ -5,7 +5,7 @@ MyShop is a simple Symfony application between Shop and Products
 
 **Requirements:**
 - [Symfony](https://symfony.com/doc/current/setup.html)
-- [Composer]([https://link](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos))
+- [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
 
 
 #
