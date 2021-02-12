@@ -1,7 +1,7 @@
 # MyShop
 **Description:**
 
-MyShop is a simple Symfony application between Shop and Products
+MyShop is a simple Symfony application between Shops and Products with api documentation and admin plateform
 
 **Requirements:**
 - [Symfony](https://symfony.com/doc/current/setup.html)
@@ -47,14 +47,14 @@ yarn start
 And go To:
   
   <ins>Application:</ins>
-- http://127.0.0.1:8000/
-- http://127.0.0.1:8000/shop/
-- http://127.0.0.1:8000/product/
-- http://127.0.0.1:8000/api/
-- http://127.0.0.1:8000/api/graphql
+- http://localhost:8000/
+- http://localhost:8000/shop/
+- http://localhost:8000/product/
+- http://localhost:8000/api/
+- http://localhost:8000/api/graphql
   
-<ins>Administration<ins>
-- http://127.0.0.1:3000/
+<ins>Administration:<ins>
+- http://localhost:3000/
 
 
 **Enjoy !**

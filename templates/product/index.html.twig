@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product index{% endblock %}
+{% block title %}Products {% endblock %}
 
 {% block body %}
-    <h1>Product index</h1>
+    <h1>Products </h1>
 
     <table class="table table-striped table-dark">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Description</th>
-                <th>Stock</th>
+                <th>description</th>
+                <th>stock</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,9 +19,9 @@
         {% for product in products %}
             <tr>
                 <th scope="row">{{ product.id }}</th>
-                <td>{{ product.Name }}</td>
-                <td>{{ product.Description }}</td>
-                <td>{{ product.Stock }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.stock }}</td>
                 <td>
                     <a class="btn btn-primary" role="button" href="{{ path('product_show', {'id': product.id}) }}">show</a>
                     <a class="btn btn-primary" role="button" href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
@@ -36,6 +36,7 @@
     </table>
 
     <a class="btn btn-primary" role="button"  href="{{ path('product_new') }}">Create new</a>
-    <a class="btn btn-primary" role="button"  href="{{ path('shop_index') }}">List of Shops</a>
+    {# <a class="btn btn-primary" role="button"  href="{{ path('shop_index') }}">List of Shops</a>
+    <a class="btn btn-primary" role="button"  href="{{ path('admin') }}">Administration</a> #}
 
 {% endblock %}

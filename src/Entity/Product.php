@@ -22,17 +22,17 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Name;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Description;
+    private $description;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $Stock;
+    private $stock;
 
     /**
      * @ORM\ManyToOne(targetEntity=Shop::class, inversedBy="products")
@@ -46,36 +46,36 @@ class Product
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): self
+    public function setName(string $name): self
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
     public function getStock(): ?int
     {
-        return $this->Stock;
+        return $this->stock;
     }
 
-    public function setStock(int $Stock): self
+    public function setStock(int $stock): self
     {
-        $this->Stock = $Stock;
+        $this->stock = $stock;
 
         return $this;
     }

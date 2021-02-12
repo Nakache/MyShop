@@ -24,17 +24,17 @@ class Shop
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Name;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Siren;
+    private $siren;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $Capacity;
+    private $capacity;
 
     /**
      * @ORM\OneToMany(targetEntity=Product::class, mappedBy="shop")
@@ -53,36 +53,36 @@ class Shop
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): self
+    public function setName(string $name): self
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
 
     public function getSiren(): ?string
     {
-        return $this->Siren;
+        return $this->siren;
     }
 
-    public function setSiren(string $Siren): self
+    public function setSiren(string $siren): self
     {
-        $this->Siren = $Siren;
+        $this->siren = $siren;
 
         return $this;
     }
 
     public function getCapacity(): ?int
     {
-        return $this->Capacity;
+        return $this->capacity;
     }
 
-    public function setCapacity(int $Capacity): self
+    public function setCapacity(int $capacity): self
     {
-        $this->Capacity = $Capacity;
+        $this->capacity = $capacity;
 
         return $this;
     }

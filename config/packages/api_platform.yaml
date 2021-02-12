@@ -1,7 +1,14 @@
 api_platform:
+    title: 
+        'API MyShop'
+    description: 
+        "Documentation de l'API MyShop"
+    version: 
+        '1.0.0'
+
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
     patch_formats:
-        json: ['application/merge-patch+json']
+        json: ['application/json']
     swagger:
         versions: [3]

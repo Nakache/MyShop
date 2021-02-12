@@ -12,9 +12,9 @@ class ShopType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Name')
-            ->add('Siren')
-            ->add('Capacity')
+            ->add('name')
+            ->add('siren')
+            ->add('capacity')
         ;
     }
 
