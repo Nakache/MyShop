@@ -18,12 +18,25 @@ composer install
 ```shell
 php bin/console doctrine:database:create
 ```
+and
+```shell
+php bin/console doctrine:schema:create
+```
 After that just run:
 ```shell
 php bin/console doctrine:migrations:migrate
 ```
 You have new database with my structs !
 
+
+Before run symfony server do (for Webpack):
+```
+yarn encore dev
+
+or
+
+npm run dev
+```
 
 Now Just run:
 ```shell

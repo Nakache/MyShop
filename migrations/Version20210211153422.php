@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210210143432 extends AbstractMigration
+final class Version20210222153422 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,20 +20,16 @@ final class Version20210210143432 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE product DROP FOREIGN KEY FK_D34A04ADB852C405');
-        $this->addSql('DROP INDEX IDX_D34A04ADB852C405 ON product');
-        $this->addSql('ALTER TABLE product ADD shop_id INT DEFAULT NULL, DROP shop_id_id');
+        $this->addSql('CREATE TABLE product (id INT AUTO_INCREMENT NOT NULL, shop_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL, stock INT NOT NULL, INDEX IDX_D34A04AD4D16C4DD (shop_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE shop (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, siren VARCHAR(255) NOT NULL, capacity INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE product ADD CONSTRAINT FK_D34A04AD4D16C4DD FOREIGN KEY (shop_id) REFERENCES shop (id)');
-        $this->addSql('CREATE INDEX IDX_D34A04AD4D16C4DD ON product (shop_id)');
     }
 
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE product DROP FOREIGN KEY FK_D34A04AD4D16C4DD');
-        $this->addSql('DROP INDEX IDX_D34A04AD4D16C4DD ON product');
-        $this->addSql('ALTER TABLE product ADD shop_id_id INT NOT NULL, DROP shop_id');
-        $this->addSql('ALTER TABLE product ADD CONSTRAINT FK_D34A04ADB852C405 FOREIGN KEY (shop_id_id) REFERENCES shop (id)');
-        $this->addSql('CREATE INDEX IDX_D34A04ADB852C405 ON product (shop_id_id)');
+        $this->addSql('DROP TABLE product');
+        $this->addSql('DROP TABLE shop');
     }
 }
