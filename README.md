@@ -29,15 +29,6 @@ php bin/console doctrine:migrations:migrate
 You have new database with my structs !
 
 
-Before run symfony server do (for Webpack):
-```
-yarn encore dev
-
-or
-
-npm run dev
-```
-
 Now Just run:
 ```shell
 symfony server:start
