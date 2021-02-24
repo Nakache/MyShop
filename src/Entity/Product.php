@@ -35,7 +35,8 @@ class Product
     private $stock;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Shop::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=Shop::class, inversedBy="products", cascade={"remove"})
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $shop;
 
