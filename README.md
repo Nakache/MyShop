@@ -1,4 +1,4 @@
-# MyShop
+# MyShop By zouclar
 **Description:**
 
 MyShop is a simple Symfony application between Shops and Products with api documentation and admin plateform
