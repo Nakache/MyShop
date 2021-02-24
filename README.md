@@ -1,4 +1,4 @@
-# MyShop by morgan
+# MyShop
 
 **Description:**
 
