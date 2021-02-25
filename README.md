@@ -32,11 +32,16 @@ php bin/console doctrine:schema:create
 ```
 You have new database with my structs !
 
+Now to populate your DB, Run:
+```shell
+php bin/console doctrine:fixtures:load
+```
 
-Now Just run:
+It's done, now just run:
 ```shell
 symfony server:start
 ```
+
 #
 **To Administration:**
 
