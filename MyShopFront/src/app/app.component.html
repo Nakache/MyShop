@@ -1,0 +1,33 @@
+<!-- <app-header></app-header> -->
+<mat-toolbar color="primary" class="header">
+  <div>Material Theme</div>
+  <button mat-icon-button>
+    <mat-icon (click)="snav.toggle()" class="hamburger">menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+  <!-- Sidenav -->
+  <mat-sidenav
+    #snav
+    [mode]="mobileQuery.matches ? 'over' : 'side'"
+    [fixedInViewport]="mobileQuery.matches"
+    fixedTopGap="56"
+  >
+    <mat-nav-list>
+      <a mat-list-item> <mat-icon>dashboard</mat-icon> Dashboard </a>
+      <a mat-list-item> <mat-icon>location_on</mat-icon> Maps </a>
+      <a mat-list-item> <mat-icon>calendar_today</mat-icon> Calendar </a>
+      <a mat-list-item> <mat-icon>person</mat-icon> Lorem Ispum </a>
+      <a mat-list-item> <mat-icon>content_paste</mat-icon> Lorem Ispum </a>
+      <a mat-list-item> <mat-icon>library_books</mat-icon> Lorem Ispum </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+
+    <!-- Angular material cards -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

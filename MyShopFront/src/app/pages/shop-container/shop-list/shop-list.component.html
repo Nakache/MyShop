@@ -1,0 +1,13 @@
+<mat-grid-list cols="2" rowHeight="2.5:1" class="">
+  <mat-grid-tile rowspan="2">
+    <a
+      *ngFor="let shop of shops; let index = index"
+      routerLinkActive="active"
+      class=""
+    >
+      {{ shop.name }}
+    </a>
+  </mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+</mat-grid-list>
