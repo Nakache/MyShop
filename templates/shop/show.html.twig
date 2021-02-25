@@ -23,6 +23,7 @@
                 <th>Capacity</th>
                 <td>{{ shop.capacity }}</td>
             </tr>
+            {% if products is not empty %}
             <tr>
             <th>produits:</th>
             <td>
@@ -37,6 +38,7 @@
                 </ul>
             </td>
             </tr>
+            {% endif %}
 
         </tbody>
     </table>

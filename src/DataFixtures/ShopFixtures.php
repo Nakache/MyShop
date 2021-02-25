@@ -10,9 +10,12 @@ use Doctrine\Persistence\ObjectManager;
 class ShopFixtures extends Fixture
 {
     protected $faker;
+    public const SHOP = 'shop_';
 
     public function load(ObjectManager $manager)
     {
+
+
         $this->faker = Factory::create();
 
         for ($i = 0; $i < 100; $i++) {
@@ -20,6 +23,7 @@ class ShopFixtures extends Fixture
             $shop->setName($this->faker->company);
             $shop->setSiren($this->faker->randomNumber($nbDigits = 9, $strict = false));
             $shop->setCapacity($this->faker->numberBetween($min = 2, $max = 9999));
+            $this->setReference(self::SHOP.$i, $shop);
             $manager->persist($shop);
         }
         $manager->flush();
