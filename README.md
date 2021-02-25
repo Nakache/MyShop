@@ -12,13 +12,23 @@ MyShop is a simple Symfony application between Shops and Products with api docum
 
 #
 
+To clone my project do:
+
+```shell
+git clone https://github.com/Zouclar/MyShop.git
+```
+
+After run `cd MyShop`
+
 To install dependencies of my project just run:
 
 ```shell
 composer install
 ```
 
-**To make migration (database) run:**
+![warning](https://img.icons8.com/emoji/20/warning-emoji.png) <ins>**You have to rename your ".env.example" into ".env" and customize to correspond to your database, just report to the [doc](https://symfony.com/doc/current/configuration.html#config-dot-env)**</ins> ![warning](https://img.icons8.com/emoji/20/warning-emoji.png)
+
+**To have my database structure run:**
 
 ```shell
 php bin/console doctrine:database:create
@@ -30,15 +40,15 @@ and
 php bin/console doctrine:schema:create
 ```
 
-After that just run:
-
-```shell
-php bin/console doctrine:migrations:migrate
-```
-
 You have new database with my structs !
 
-Now Just run:
+Now to populate your DB, Run:
+
+```shell
+php bin/console doctrine:fixtures:load
+```
+
+It's done, now just run:
 
 ```shell
 symfony server:start

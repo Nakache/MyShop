@@ -19,6 +19,19 @@ class ShopRepository extends ServiceEntityRepository
         parent::__construct($registry, Shop::class);
     }
 
+
+     /**
+      * @return Shop[] Returns an array of id of Shop objects
+     */
+    public function GetAllIds()
+    {
+        return $this->createQueryBuilder('s.id')
+        ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
     // /**
     //  * @return Shop[] Returns an array of Shop objects
     //  */

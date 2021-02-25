@@ -23,10 +23,12 @@
                 <th>Stock</th>
                 <td>{{ product.stock }}</td>
             </tr>
+            {% if product.shop.id is defined %}
             <tr>
                 <th>Shop</th>
                 <td><a href="{{ path('shop_show', {'id': product.shop.id}) }}">{{ product.shop.name }}</a></td>
             </tr>
+            {% endif %}
         </tbody>
     </table>
 
