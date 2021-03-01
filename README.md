@@ -1,4 +1,4 @@
-# MyShop
+[![MyShop](img/MyShop.png)](https://github.com/banner-maker/banner-maker)
 
 **Description:**
 
