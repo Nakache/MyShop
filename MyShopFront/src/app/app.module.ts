@@ -11,9 +11,16 @@ import { HeaderComponent } from './component/header/header.component';
 import { ShopModule } from './pages/shop-container/shop.module';
 import { MaterialModule } from './modules/material/material.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ConfirmDialogComponent } from './component/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogService } from './services/confirm-dialog.service';
 
 @NgModule({
-  declarations: [AppComponent, NotFoundComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    NotFoundComponent,
+    HeaderComponent,
+    ConfirmDialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,7 +30,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     HttpClientModule,
     ShopModule,
   ],
-  providers: [],
+  providers: [ConfirmDialogService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

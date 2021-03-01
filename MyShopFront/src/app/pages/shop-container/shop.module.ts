@@ -8,6 +8,7 @@ import { ShopListComponent } from './shop-list/shop-list.component';
 import { RouterModule } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MaterialModule } from 'src/app/modules/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,12 @@ import { MaterialModule } from 'src/app/modules/material/material.module';
     ShopDetailsComponent,
     ShopListComponent,
   ],
-  imports: [CommonModule, RouterModule, shopRouting, MaterialModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    shopRouting,
+    MaterialModule,
+    ReactiveFormsModule,
+  ],
 })
 export class ShopModule {}

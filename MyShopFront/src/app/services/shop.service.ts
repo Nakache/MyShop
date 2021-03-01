@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { map, pluck } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map, pluck } from 'rxjs/operators';
 import { Shop } from '../models/shop';
 
 @Injectable({
@@ -9,9 +9,6 @@ import { Shop } from '../models/shop';
 })
 export class ShopService {
   constructor(private http: HttpClient) {}
-
-  userSubject = new Subject<Shop[]>();
-  userSubject$ = this.userSubject.asObservable();
 
   getAllShop(): Observable<any> {
     const url = `http://localhost:8000/api/shops?page=1"`;
@@ -21,4 +18,33 @@ export class ShopService {
       pluck('hydra:member')
     );
   }
+
+  removeShop(id: number): Observable<any> {
+    const url = `http://localhost:8000/api/shops/${id}`;
+    return this.http.delete(url).pipe(
+      catchError((error: any) => {
+        console.error(error);
+        return of();
+      })
+    );
+  }
+
+  addShop(shop: Shop) {
+    const url = `http://localhost:8000/api/shops`;
+    return this.http.post(url, shop, this.httpOptions).subscribe(
+      () => {
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    );
+  }
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'mon-jeton',
+    }),
+  };
 }

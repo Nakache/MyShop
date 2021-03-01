@@ -5,7 +5,7 @@ export class Shop {
     public id: number,
     public name: string,
     public siren: string,
-    public capacity: string,
+    public capacity: number,
     public product: Product[]
   ) {}
 }

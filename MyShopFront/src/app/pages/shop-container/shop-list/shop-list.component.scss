@@ -6,3 +6,16 @@ mat-grid-tile {
   background: lightblue;
   background-color: #424242;
 }
+.search-Section {
+  width: 100%;
+}
+.flex-center {
+  margin-top: 1em;
+  display: flex;
+  max-height: 100%;
+  place-content: center space-around;
+  flex-wrap: wrap;
+}
+.column {
+  background-color: red;
+}
