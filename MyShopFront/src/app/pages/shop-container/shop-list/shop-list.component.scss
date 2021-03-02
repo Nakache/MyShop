@@ -6,6 +6,23 @@ mat-grid-tile {
   background: lightblue;
   background-color: #424242;
 }
+
+.shop-list-container {
+  width: 100%;
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .search-Section {
   width: 100%;
 }
@@ -18,4 +35,11 @@ mat-grid-tile {
 }
 .column {
   background-color: red;
+}
+.mat-table {
+  min-width: 100%;
+  border-collapse: collapse;
+  height: 600px;
+  height: 60vh;
+  overflow: auto;
 }

@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MaterialModule } from 'src/app/modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ShopAddComponent } from './shop-add/shop-add.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ShopEditComponent,
     ShopDetailsComponent,
     ShopListComponent,
+    ShopAddComponent,
   ],
   imports: [
     CommonModule,

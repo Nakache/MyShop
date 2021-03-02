@@ -12,11 +12,6 @@ const SHOP_ROUTES: Route[] = [
       { path: 'new', component: ShopEditComponent },
       { path: 'index/edit', component: ShopEditComponent },
       { path: 'index', component: ShopDetailsComponent },
-      { path: '', component: ShopDetailsComponent },
-      {
-        path: '**',
-        component: NotFoundComponent,
-      },
     ],
   },
 ];

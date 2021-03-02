@@ -1,12 +1,14 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { merge, observable } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
+import { merge, observable, Subject } from 'rxjs';
 import { startWith, switchMap } from 'rxjs/operators';
 import { Shop } from 'src/app/models/shop';
 import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 import { ShopService } from 'src/app/services/shop.service';
+import { ShopAddComponent } from '../shop-add/shop-add.component';
 import { ShopEditComponent } from '../shop-edit/shop-edit.component';
 
 @Component({
@@ -19,20 +21,69 @@ export class ShopListComponent implements OnInit, AfterViewInit {
   private idArray: number[] = []; // Create array for checkbox selection in table.
   private idColumn = 'id';
   public displayedColumns = ['select', 'name', 'siren', 'capacity', 'options'];
-  public shopEditComponent!: ShopEditComponent;
+
+  // paginator
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  data!: MatTableDataSource<Shop>;
+  public pageSize = 5;
+  public currentPage = 0;
+  public totalSize = 0;
+  public array: any;
+  pageEvent!: PageEvent;
+
+  //spinner
+  isLoadingResults = true;
+  isRateLimitReached = false;
+
+  //search
+  public search = '';
+
   constructor(
     private shopService: ShopService,
     private dialogService: ConfirmDialogService,
     public dialog: MatDialog
-  ) {}
-
-  ngOnInit(): void {
-    this.shopService.getAllShop().subscribe((data: Shop[]) => {
-      console.log(data);
-      this.shops = data;
+  ) {
+    this.shopService.getAllShop().subscribe((data: any) => {
+      if (data.error) {
+        console.log('error4');
+      } else {
+        console.log(1);
+        this.isLoadingResults = false;
+        this.data = new MatTableDataSource<Shop>(data);
+        this.data.paginator = this.paginator;
+        this.array = data;
+        this.totalSize = this.array.length;
+        this.iterator();
+      }
     });
   }
-  ngAfterViewInit() {}
+
+  public handlePage(e: any) {
+    console.log('paginator');
+    this.currentPage = e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.iterator();
+  }
+
+  private iterator() {
+    const end = (this.currentPage + 1) * this.pageSize;
+    const start = this.currentPage * this.pageSize;
+    const part = this.array.slice(start, end);
+    this.data = part;
+  }
+
+  public doFilter(e: Event) {
+    console.log(this.data);
+    this.data.filter = (e.target as HTMLTextAreaElement).value
+      .trim()
+      .toLocaleLowerCase();
+    console.log(this.data.filter);
+  }
+
+  ngOnInit(): void {}
+  ngAfterViewInit() {
+    console.log(2);
+  }
 
   // SELECT BOX
   public selectShop(selectedShop: any) {
@@ -40,7 +91,10 @@ export class ShopListComponent implements OnInit, AfterViewInit {
   }
   // --------------- ADD ------------------
   public addRecord() {
-    //  this.dialog.open(this.shopEditComponent);
+    const dialogRef = this.dialog.open(ShopAddComponent, {
+      width: '250px',
+      data: {},
+    });
   }
   // --------------- DELETE ------------------
 
