@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
 
 @Component({
@@ -7,10 +7,11 @@ import { Shop } from 'src/app/models/shop';
   styleUrls: ['./shop-details.component.scss'],
 })
 export class ShopDetailsComponent implements OnInit {
-  shop!: Shop;
   index!: string;
-
+  @Input() shop: Shop | undefined;
   constructor() {}
 
   ngOnInit(): void {}
+
+  ngOnChanges() {}
 }

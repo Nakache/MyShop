@@ -8,20 +8,15 @@
         <div class="flex-center">
           <button class="button" mat-raised-button>shops</button>
 
-          <button mat-raised-button>Show Selected</button>
-          <button mat-raised-button (click)="addRecord()">Add</button>
+          <button mat-raised-button (click)="addShop()">Add</button>
         </div>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Filter" />
+        </mat-form-field>
       </section>
 
       <section class="table-section">
         <mat-table class="mat-table" [dataSource]="data">
-          <ng-container matColumnDef="select">
-            <mat-header-cell *matHeaderCellDef> Select </mat-header-cell>
-            <mat-cell *matCellDef="let row">
-              <mat-checkbox (click)="selectShop(row.id)"></mat-checkbox>
-            </mat-cell>
-          </ng-container>
-
           <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
             <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
@@ -40,27 +35,26 @@
           <ng-container matColumnDef="options">
             <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
             <mat-cell *matCellDef="let row">
-              <button (click)="deleteRecord(row.id)">Delete</button>
+              <button (click)="deleteShop(row.id)">Delete</button>
               <!-- <button (click)="editRecord(row.id)">Edit</button> -->
             </mat-cell>
           </ng-container>
 
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+          <mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            (click)="getCurrentShop(row.id)"
+          ></mat-row>
         </mat-table>
         <mat-paginator
-          [pageSize]="pageSize"
-          [pageSizeOptions]="[5, 10, 20]"
-          [showFirstLastButtons]="true"
           [length]="totalSize"
-          [pageIndex]="currentPage"
-          (page)="handlePage($event)"
+          [pageSize]="pageSize"
         ></mat-paginator>
       </section>
     </div>
   </mat-grid-tile>
   <mat-grid-tile>
-    <app-shop-details></app-shop-details>
+    <app-shop-details [shop]="currentShop"></app-shop-details>
   </mat-grid-tile>
   <mat-grid-tile>3</mat-grid-tile>
 </mat-grid-list>

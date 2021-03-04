@@ -10,13 +10,16 @@ import { Shop } from '../models/shop';
 export class ShopService {
   constructor(private http: HttpClient) {}
 
+  getShop(page: number): Observable<any> {
+    const basUri = 'http://localhost:8000/api/shops';
+    const url = `${basUri}?page=${page + 1}`;
+
+    return this.http.get<any>(url);
+  }
+
   getAllShop(): Observable<any> {
-    const url = `http://localhost:8000/api/shops?page=1"`;
-    return this.http.get<any>(url).pipe(
-      map((x) => JSON.stringify(x)),
-      map((x) => JSON.parse(x)),
-      pluck('hydra:member')
-    );
+    const url = `http://localhost:8000/api/shops`;
+    return this.http.get<any>(url);
   }
 
   removeShop(id: number): Observable<any> {
