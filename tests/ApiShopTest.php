@@ -4,7 +4,7 @@ namespace App\Tests;
 
 use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\ApiTestCase;
 
-class ShopTest extends ApiTestCase
+class ApiShopTest extends ApiTestCase
 {
     public function testSomething(): void
     {

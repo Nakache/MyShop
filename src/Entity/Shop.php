@@ -9,11 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource(
- *  attributes={
- *        "pagination_items_per_page"=10
- *    }
- * )
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=ShopRepository::class)
  */
 class Shop
