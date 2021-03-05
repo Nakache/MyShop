@@ -13,14 +13,11 @@ import { MaterialModule } from './modules/material/material.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ConfirmDialogComponent } from './component/confirm-dialog/confirm-dialog.component';
 import { ConfirmDialogService } from './services/confirm-dialog.service';
+import { ConfirmDialogModule } from './modules/confirmDialog.module';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NotFoundComponent,
-    HeaderComponent,
-    ConfirmDialogComponent,
-  ],
+  declarations: [AppComponent, NotFoundComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,8 +26,9 @@ import { ConfirmDialogService } from './services/confirm-dialog.service';
     MatCheckboxModule,
     HttpClientModule,
     ShopModule,
+    ConfirmDialogModule,
   ],
-  providers: [ConfirmDialogService],
+  providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

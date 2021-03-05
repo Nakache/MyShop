@@ -2,7 +2,6 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { switchMap } from 'rxjs/operators';
 import { Shop } from 'src/app/models/shop';
 import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 import { ShopService } from 'src/app/services/shop.service';
@@ -19,7 +18,7 @@ export class ShopListComponent implements OnInit, AfterViewInit {
   // paginator
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   data!: MatTableDataSource<Shop>;
-  public pageSize = 5;
+  public pageSize = 10;
   public totalSize = 0;
   public array: any;
   public pageEvent!: PageEvent;
@@ -69,7 +68,7 @@ export class ShopListComponent implements OnInit, AfterViewInit {
   // --------------- ADD ------------------
   public addShop() {
     const dialogRef = this.dialog.open(ShopAddComponent, {
-      width: '250px',
+      width: '400px',
       data: {},
     });
   }
@@ -86,19 +85,9 @@ export class ShopListComponent implements OnInit, AfterViewInit {
 
     this.dialogService.open(optionDialog);
 
-    this.dialogService
-      .confirmed()
-      .pipe(
-        switchMap((res) => {
-          if (res === true) {
-            console.log('url: ', url);
-            return this.shopService.removeShop(shopId);
-          } else {
-            return 'error remove';
-          }
-        })
-      )
-      .subscribe((confirmed) => {
+    this.dialogService.confirmed().subscribe((confirmed) => {
+      if (confirmed) {
+        this.shopService.removeShop(shopId);
         this.success();
         // Refresh DataTable to remove row.
         const index = this.data.data.findIndex((obj) => obj.id == shopId);
@@ -108,7 +97,8 @@ export class ShopListComponent implements OnInit, AfterViewInit {
         setTimeout(() => {
           this.data.paginator = this.paginator;
         });
-      });
+      }
+    });
   }
 
   private success() {

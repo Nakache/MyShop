@@ -22,6 +22,17 @@ mat-grid-tile {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  mat-spinner {
+    width: 24px;
+    height: 24px;
+  }
+  md-spinner {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin: 5px 10px 0px 0px;
+  }
 }
 .search-Section {
   width: 100%;
@@ -32,14 +43,15 @@ mat-grid-tile {
   max-height: 100%;
   place-content: center space-around;
   flex-wrap: wrap;
+  background-color: #424242;
+  padding: 0.5em;
 }
 .column {
   background-color: red;
 }
 .mat-table {
-  min-width: 100%;
+  min-width: 98%;
   border-collapse: collapse;
-  height: 600px;
-  height: 60vh;
   overflow: auto;
+  padding: 0 1%;
 }

@@ -1,18 +1,34 @@
-<mat-grid-list cols="2" rowHeight="2.5:1" class="">
-  <div class="loading" *ngIf="isLoadingResults">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+<section class="search-Section" *ngIf="!isLoadingResults">
+  <div class="flex-center">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter" />
+    </mat-form-field>
+    <button mat-raised-button (click)="addShop()">Add</button>
   </div>
+</section>
+
+<mat-grid-list cols="2" rowHeight="400px" class="">
+  <div class="loading" *ngIf="isLoadingResults">
+    <mat-spinner
+      *ngIf="isLoadingResults"
+      diameter="150"
+      strokeWidth="10"
+    ></mat-spinner>
+  </div>
+
   <mat-grid-tile rowspan="2">
     <div class="shop-list-container" *ngIf="!isLoadingResults">
       <section class="search-Section">
         <div class="flex-center">
-          <button class="button" mat-raised-button>shops</button>
-
+          <mat-form-field>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Filter"
+            />
+          </mat-form-field>
           <button mat-raised-button (click)="addShop()">Add</button>
         </div>
-        <mat-form-field>
-          <input matInput (keyup)="applyFilter($event)" placeholder="Filter" />
-        </mat-form-field>
       </section>
 
       <section class="table-section">
