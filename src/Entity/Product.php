@@ -5,10 +5,12 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass=ProductRepository::class)
+ * #[ApiResource(normalizationContext: ['groups' => ['product']])]
  */
 class Product
 {
@@ -16,27 +18,32 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"product"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"product"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"product"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"product"})
      */
     private $stock;
 
     /**
      * @ORM\ManyToOne(targetEntity=Shop::class, inversedBy="products", cascade={"remove"})
      * @ORM\JoinColumn(onDelete="CASCADE")
+     * @Groups({"product"})
      */
     private $shop;
 
