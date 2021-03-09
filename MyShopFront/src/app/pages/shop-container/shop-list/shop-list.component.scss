@@ -1,8 +1,61 @@
+@import "_variables";
+
 mat-grid-list {
-  background: #d0112b;
+  background: $primary;
 }
 
 mat-grid-tile {
   background: lightblue;
   background-color: #424242;
+}
+
+.shop-list-container {
+  width: 100%;
+  height: 100%;
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  mat-spinner {
+    width: 24px;
+    height: 24px;
+  }
+  md-spinner {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin: 5px 10px 0px 0px;
+  }
+}
+.search-Section {
+  width: 100%;
+  background-color: #424242;
+}
+.flex-center {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-around;
+  max-height: 100%;
+  width: 50%;
+
+  padding: 0.5em 0;
+}
+.column {
+  background-color: $primary;
+}
+.mat-table {
+  min-width: 98%;
+  border-collapse: collapse;
+  overflow: auto;
+  padding: 0 1%;
 }

@@ -1,1 +1,13 @@
-<p>shop-details works!</p>
+<div *ngIf="shop">
+  <div class="">
+    <h3 class="">{{ shop.name }}</h3>
+  </div>
+  <hr />
+  <div class="row">
+    <ul class="">
+      <li *ngFor="let product of shop.product" class="">
+        {{ product.name }} <span class="">{{ product.stock }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

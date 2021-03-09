@@ -1,13 +1,64 @@
-<mat-grid-list cols="2" rowHeight="2.5:1" class="">
+<section class="search-Section" *ngIf="!isLoadingResults">
+  <div class="flex-center">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter" />
+    </mat-form-field>
+
+    <button mat-raised-button (click)="addShop()">Add</button>
+  </div>
+</section>
+
+<mat-grid-list cols="2" rowHeight="400px" class="">
+  <div class="loading" *ngIf="isLoadingResults">
+    <mat-spinner
+      *ngIf="isLoadingResults"
+      diameter="150"
+      strokeWidth="10"
+    ></mat-spinner>
+  </div>
+
   <mat-grid-tile rowspan="2">
-    <a
-      *ngFor="let shop of shops; let index = index"
-      routerLinkActive="active"
-      class=""
-    >
-      {{ shop.name }}
-    </a>
+    <div class="shop-list-container" *ngIf="!isLoadingResults">
+      <section class="table-section">
+        <mat-table class="mat-table" [dataSource]="data">
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="siren">
+            <mat-header-cell *matHeaderCellDef> Siren </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.siren }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="capacity">
+            <mat-header-cell *matHeaderCellDef> Capacity </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.capacity }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="options">
+            <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <button (click)="deleteShop(row.id, row.name)">Delete</button>
+              <!-- <button (click)="editRecord(row.id)">Edit</button> -->
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            (click)="getCurrentShop(row.id)"
+          ></mat-row>
+        </mat-table>
+        <mat-paginator
+          [length]="totalSize"
+          [pageSize]="pageSize"
+        ></mat-paginator>
+      </section>
+    </div>
   </mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>
+    <app-shop-details [shop]="currentShop"></app-shop-details>
+  </mat-grid-tile>
   <mat-grid-tile>3</mat-grid-tile>
 </mat-grid-list>

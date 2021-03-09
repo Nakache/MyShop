@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  button {
+    margin: 0 0 16px;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  .field,
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  .field {
+    flex-direction: column;
+  }
+}

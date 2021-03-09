@@ -1,0 +1,119 @@
+.footer {
+  /* Remove */
+  position: relative;
+  background-color: #303030;
+  width: 100%;
+  bottom: 0;
+  .footer-container {
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 2em 0 2em;
+
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #d0112b;
+      margin: 1px;
+      padding: 0;
+    }
+
+    p {
+      font-size: 14px;
+      text-align: right;
+      color: #d0112b;
+      font-weight: 500;
+    }
+    .logo-img {
+      width: 180px;
+      height: 140px;
+      cursor: pointer;
+    }
+  }
+}
+
+.footer .grid-container a {
+  color: #d0112b;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 16.25px;
+}
+
+.footer .grid-item {
+  padding: 10px;
+  color: #d0112b;
+  .social-buttons {
+    padding-top: 20px;
+    a {
+      display: inline-flex;
+      text-decoration: none;
+      font-size: 30px;
+      width: 60px;
+      height: 60px;
+      color: #1a1f24;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin: 0 8px;
+      i {
+        transition: 0.3s ease-in;
+      }
+      &:hover i {
+        background: linear-gradient(45deg, #d0112b, #d0112b);
+        transform: scale(1.5);
+      }
+    }
+    .circle-icon {
+      background: #d0112b;
+      padding: 12px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.footer .grid-container .inner-grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  text-align: left;
+}
+
+/*------------------------------------------------------------------
+
+
+/*  small devices */
+@media only screen and (max-width: 600px) {
+  .footer {
+    height: 620px;
+    bottom: 0;
+    .grid-container {
+      display: grid;
+      grid-template-columns: 400px;
+      .inner-grid-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        text-align: left;
+      }
+    }
+  }
+}
+
+/*========================================================*/
+
+/* Large devices */
+@media only screen and (min-width: 992px) {
+  .footer {
+    height: 260px;
+    bottom: 0;
+    .grid-container {
+      display: grid;
+      grid-template-columns: 350px auto 350px;
+      .inner-grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        text-align: left;
+      }
+    }
+  }
+}

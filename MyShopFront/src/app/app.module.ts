@@ -10,10 +10,18 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ShopModule } from './pages/shop-container/shop.module';
 import { MaterialModule } from './modules/material/material.module';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ConfirmDialogModule } from './modules/confirmDialog.module';
+import { FooterComponent } from './component/footer/footer.component';
+import { SnackbarComponent } from './component/snackbar/snackbar.component';
 
 @NgModule({
-  declarations: [AppComponent, NotFoundComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    NotFoundComponent,
+    HeaderComponent,
+    FooterComponent,
+    SnackbarComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,9 +30,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     MatCheckboxModule,
     HttpClientModule,
     ShopModule,
+    ConfirmDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [],
 })
 export class AppModule {}

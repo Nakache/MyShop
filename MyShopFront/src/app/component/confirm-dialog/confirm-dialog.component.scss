@@ -1,0 +1,18 @@
+h1::first-letter,
+.dialog-message::first-letter {
+  text-transform: uppercase;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  button {
+    margin: 0 0 16px;
+  }
+}
+
+.confirm-button {
+  margin: 0 auto;
+}

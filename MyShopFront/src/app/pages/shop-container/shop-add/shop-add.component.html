@@ -1,0 +1,53 @@
+<div class="header">
+  <h1 mat-dialog-title>create a shop</h1>
+  <button mat-button>
+    <mat-icon (click)="cancel()">close</mat-icon>
+  </button>
+</div>
+
+<form [formGroup]="shopForm" (ngSubmit)="saveShop()">
+  <div class="field">
+    <mat-form-field appearance="fill">
+      <mat-label>Shop name</mat-label>
+      <input
+        #inputShopName
+        matInput
+        placeholder=""
+        formControlName="name"
+        type="text"
+        class="form-control"
+        id="name"
+      />
+      <mat-icon matSuffix>store</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Shop siren</mat-label>
+      <input
+        matInput
+        placeholder=""
+        formControlName="siren"
+        type="text"
+        class="form-control"
+        id="siren"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Shop capacity</mat-label>
+      <input
+        matInput
+        placeholder=""
+        formControlName="capacity"
+        class="form-control"
+        type="number"
+        id="capacity"
+      />
+    </mat-form-field>
+  </div>
+  <div class="button-container">
+    <button mat-raised-button color="primary" [disabled]="shopForm.invalid">
+      Sauvegarder
+    </button>
+  </div>
+</form>
