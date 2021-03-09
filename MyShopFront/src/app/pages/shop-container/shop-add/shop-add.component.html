@@ -1,8 +1,16 @@
+<div class="header">
+  <h1 mat-dialog-title>create a shop</h1>
+  <button mat-button>
+    <mat-icon (click)="cancel()">close</mat-icon>
+  </button>
+</div>
+
 <form [formGroup]="shopForm" (ngSubmit)="saveShop()">
   <div class="field">
     <mat-form-field appearance="fill">
       <mat-label>Shop name</mat-label>
       <input
+        #inputShopName
         matInput
         placeholder=""
         formControlName="name"
@@ -38,12 +46,8 @@
     </mat-form-field>
   </div>
   <div class="button-container">
-    <button class="btn btn-primary" [disabled]="shopForm.invalid">
+    <button mat-raised-button color="primary" [disabled]="shopForm.invalid">
       Sauvegarder
     </button>
-    <button mat-button color="primary" [disabled]="shopForm.invalid">
-      Primary
-    </button>
-    <button class="btn btn-secondary" [routerLink]="['../']">Annuler</button>
   </div>
 </form>

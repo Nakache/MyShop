@@ -10,14 +10,16 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ShopModule } from './pages/shop-container/shop.module';
 import { MaterialModule } from './modules/material/material.module';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ConfirmDialogComponent } from './component/confirm-dialog/confirm-dialog.component';
-import { ConfirmDialogService } from './services/confirm-dialog.service';
 import { ConfirmDialogModule } from './modules/confirmDialog.module';
 import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, NotFoundComponent, HeaderComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    NotFoundComponent,
+    HeaderComponent,
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,6 +32,6 @@ import { FooterComponent } from './component/footer/footer.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [],
 })
 export class AppModule {}

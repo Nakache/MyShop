@@ -3,6 +3,7 @@
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event)" placeholder="Filter" />
     </mat-form-field>
+
     <button mat-raised-button (click)="addShop()">Add</button>
   </div>
 </section>
@@ -18,19 +19,6 @@
 
   <mat-grid-tile rowspan="2">
     <div class="shop-list-container" *ngIf="!isLoadingResults">
-      <section class="search-Section">
-        <div class="flex-center">
-          <mat-form-field>
-            <input
-              matInput
-              (keyup)="applyFilter($event)"
-              placeholder="Filter"
-            />
-          </mat-form-field>
-          <button mat-raised-button (click)="addShop()">Add</button>
-        </div>
-      </section>
-
       <section class="table-section">
         <mat-table class="mat-table" [dataSource]="data">
           <ng-container matColumnDef="name">
@@ -51,7 +39,7 @@
           <ng-container matColumnDef="options">
             <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
             <mat-cell *matCellDef="let row">
-              <button (click)="deleteShop(row.id)">Delete</button>
+              <button (click)="deleteShop(row.id, row.name)">Delete</button>
               <!-- <button (click)="editRecord(row.id)">Edit</button> -->
             </mat-cell>
           </ng-container>

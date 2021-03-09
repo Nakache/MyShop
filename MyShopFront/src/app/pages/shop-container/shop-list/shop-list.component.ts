@@ -56,7 +56,6 @@ export class ShopListComponent implements OnInit, AfterViewInit {
       if (data.error) {
       } else {
         this.data = new MatTableDataSource<Shop>(data['hydra:member']);
-        //  this.data = data['hydra:member'];
         this.isLoadingResults = false;
       }
     });
@@ -69,18 +68,19 @@ export class ShopListComponent implements OnInit, AfterViewInit {
   public addShop() {
     const dialogRef = this.dialog.open(ShopAddComponent, {
       width: '400px',
+      autoFocus: false,
       data: {},
     });
   }
   // --------------- DELETE ------------------
 
-  public deleteShop(shopId: number) {
+  public deleteShop(shopId: number, shopName: string) {
     const url = `http://localhost:8000/api/shops/${shopId}`;
     const optionDialog = {
-      title: 'confirm',
-      message: `shop supprimer`,
+      title: 'delete shop',
+      message: `do you want to delete ${shopName}`,
       cancelText: 'cancel',
-      confirmText: 'confirm',
+      confirmText: 'delete',
     };
 
     this.dialogService.open(optionDialog);

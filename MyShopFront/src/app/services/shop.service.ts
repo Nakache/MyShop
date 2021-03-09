@@ -22,13 +22,16 @@ export class ShopService {
     return this.http.get<any>(url);
   }
 
-  removeShop(id: number): Observable<any> {
+  removeShop(id: number) {
     const url = `http://localhost:8000/api/shops/${id}`;
-    return this.http.delete(url).pipe(
-      catchError((error: any) => {
-        console.error(error);
-        return of();
-      })
+    console.log(url);
+    return this.http.delete<any>(url).subscribe(
+      () => {
+        console.log('Shop deleted !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
     );
   }
 

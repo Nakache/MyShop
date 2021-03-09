@@ -6,7 +6,6 @@ import { ShopEditComponent } from './shop-edit/shop-edit.component';
 import { ShopDetailsComponent } from './shop-details/shop-details.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { RouterModule } from '@angular/router';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MaterialModule } from 'src/app/modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShopAddComponent } from './shop-add/shop-add.component';

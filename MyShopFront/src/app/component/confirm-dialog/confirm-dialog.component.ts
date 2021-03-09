@@ -32,8 +32,4 @@ export class ConfirmDialogComponent {
   public confirm() {
     this.close(true);
   }
-  @HostListener('keydown.esc')
-  public onEsc() {
-    this.close(false);
-  }
 }

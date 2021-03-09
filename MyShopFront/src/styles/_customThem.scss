@@ -1,0 +1,94 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-mcgpalette0: (
+  50: #f9e2e6,
+  100: #f1b8bf,
+  200: #e88895,
+  300: #de586b,
+  400: #d7354b,
+  500: #d0112b,
+  600: #cb0f26,
+  700: #c40c20,
+  800: #be0a1a,
+  900: #b30510,
+  A100: #ffddde,
+  A200: #ffaaad,
+  A400: #ff777c,
+  A700: #ff5e63,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$MyShopFront-primary: mat-palette($md-mcgpalette0);
+$MyShopFront-accent: mat-palette($mat-pink, 100, 500, A100);
+
+// The warn palette is optional (defaults to red).
+$MyShopFront-warn: mat-palette($mat-lime);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$MyShopFront-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $MyShopFront-primary,
+      accent: $MyShopFront-accent,
+      warn: $MyShopFront-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($MyShopFront-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  background-color: #303030;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #d7354b;
+}
+
+.mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label,
+.mat-form-field-appearance-fill.mat-form-field-can-float
+  .mat-input-server:focus
+  + .mat-form-field-label-wrapper
+  .mat-form-field-label {
+  transform: translateY(-0.59375em) scale(0.85);
+}
