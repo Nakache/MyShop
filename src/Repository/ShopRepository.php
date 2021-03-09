@@ -20,18 +20,6 @@ class ShopRepository extends ServiceEntityRepository
     }
 
 
-     /**
-      * @return Shop[] Returns an array of id of Shop objects
-     */
-    public function GetAllIds()
-    {
-        return $this->createQueryBuilder('s.id')
-        ->getQuery()
-            ->getResult()
-        ;
-    }
-
-
     // /**
     //  * @return Shop[] Returns an array of Shop objects
     //  */

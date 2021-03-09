@@ -31,7 +31,7 @@
         <a class="nav-link" href="{{ path('shop_index') }}">Shops <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="http://localhost:8000/api/">Api <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ path('api_entrypoint') }}">Api <span class="sr-only">(current)</span></a>
       </li>
 
     <li class="nav-item active">
@@ -45,9 +45,12 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{ path('product_index') }}">Products</a>
           <a class="dropdown-item" href="{{ path('shop_index') }}">Shops</a>
-          <a class="dropdown-item" href="http://localhost:8000/api/">Api</a>
+          <a class="dropdown-item" href="{{ path('api_entrypoint') }}">Api</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ path('admin') }}">Administration</a>
+          <a class="dropdown-item" href="{{ path('api_graphql_entrypoint') }}">GraphQl</a>
+          <a class="dropdown-item" href="{{ path('api_graphql_graphql_playground') }}">PlayGround</a>
+          <a class="dropdown-item" href="{{ path('api_doc', { 'ui': 're_doc' }) }}">ReDoc</a>
         </div>
       </li>
       {# <li class="nav-item">
