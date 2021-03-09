@@ -1,14 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, of } from 'rxjs';
 import { catchError, map, pluck } from 'rxjs/operators';
+import { SnackbarComponent } from '../component/snackbar/snackbar.component';
 import { Shop } from '../models/shop';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShopService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public snackBar: MatSnackBar) {}
 
   getShop(page: number): Observable<any> {
     const basUri = 'http://localhost:8000/api/shops';
@@ -27,6 +29,7 @@ export class ShopService {
     console.log(url);
     return this.http.delete<any>(url).subscribe(
       () => {
+        this.openSnackBar('shop deleted', 'remove');
         console.log('Shop deleted !');
       },
       (error) => {
@@ -39,7 +42,8 @@ export class ShopService {
     const url = `http://localhost:8000/api/shops`;
     return this.http.post(url, shop, this.httpOptions).subscribe(
       () => {
-        console.log('Enregistrement terminé !');
+        this.openSnackBar('shop created', 'sucess');
+        console.log('add terminé !');
       },
       (error) => {
         console.log('Erreur ! : ' + error);
@@ -53,4 +57,14 @@ export class ShopService {
       Authorization: 'mon-jeton',
     }),
   };
+
+  openSnackBar(message: string, panelClass: string) {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      data: message,
+      panelClass: panelClass,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      duration: 10000,
+    });
+  }
 }

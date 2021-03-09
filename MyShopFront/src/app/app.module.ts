@@ -12,6 +12,7 @@ import { ShopModule } from './pages/shop-container/shop.module';
 import { MaterialModule } from './modules/material/material.module';
 import { ConfirmDialogModule } from './modules/confirmDialog.module';
 import { FooterComponent } from './component/footer/footer.component';
+import { SnackbarComponent } from './component/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FooterComponent } from './component/footer/footer.component';
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,

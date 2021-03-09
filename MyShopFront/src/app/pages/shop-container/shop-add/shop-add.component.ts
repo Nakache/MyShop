@@ -26,8 +26,7 @@ export class ShopAddComponent implements OnInit {
   ngAfterViewInit() {}
 
   saveShop() {
-    console.log(this.shopForm.value);
-    //  this.shopService.addShop(this.shopForm.value);
+    this.shopService.addShop(this.shopForm.value);
     this.close(false);
   }
 

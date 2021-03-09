@@ -26,7 +26,6 @@ export class ConfirmDialogService {
   }
   public confirmed(): Observable<any> {
     return this.dialogRef.afterClosed().pipe(
-      take(1),
       map((res) => {
         return res;
       })
